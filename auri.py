@@ -1,3 +1,10 @@
+def _smart_cmp(op, a, b):
+    try:
+        a, b = float(a), float(b)
+    except (ValueError, TypeError):
+        a, b = str(a), str(b)
+    return {"==": a == b, "!=": a != b, ">": a > b, "<": a < b, ">=": a >= b, "<=": a <= b}.get(op, False)
+
 #!/usr/bin/env python3
 import sys
 import os
@@ -55,7 +62,7 @@ def run_auri_line(line, log_file):
         actual_val = variables.get(var_name, 0)
         
         condition_met = False
-        if op == ">" and actual_val > val: condition_met = True
+        if _smart_cmp(op, actual_val, val): condition_met = True
         elif op == "<" and actual_val < val: condition_met = True
         elif op == "==" and actual_val == val: condition_met = True
         
