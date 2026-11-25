@@ -1,0 +1,4 @@
+.config/
+auri_outputs/
+__pycache__/
+*.log

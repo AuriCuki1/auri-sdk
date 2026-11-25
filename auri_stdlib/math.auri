@@ -1,0 +1,8 @@
+~ Auri Standard Library: Core Math Module
+[Module]
+name = "math"
+version = "2.0.0"
+
+[Operations]
+square num -> result
+    result = num * num

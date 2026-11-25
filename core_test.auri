@@ -1,0 +1,12 @@
+~ Auri Core System Benchmark Script
+[Metadata]
+system_name = "Auri Core Engine"
+version = "2.0"
+
+[Initialization]
+print "Booting $system_name v$version..."
+ask "Enter processing load factor: " -> load
+print "Assigned load factor: $load units"
+
+if load > 50 print "Warning: High system load detected!"
+if load <= 50 print "System operating within optimal parameters."
